@@ -49,6 +49,7 @@ non_queued_dl = set()
 non_queued_up = set()
 ulist_listener = {}
 TIME_GAP_STORE = {}
+
 GLOBAL_EXTENSION_FILTER = ['.aria2']
 
 try:
@@ -76,7 +77,6 @@ if ospath.exists('pyrogram.session'):
     osremove('pyrogram.session')
 if ospath.exists('pyrogram.session-journal'):
     osremove('pyrogram.session-journal')
-
 
 BOT_TOKEN = environ.get('BOT_TOKEN', '')
 if len(BOT_TOKEN) == 0:
@@ -147,8 +147,7 @@ elif not DOWNLOAD_DIR.endswith("/"):
 
 SA_MAIL = environ.get('SA_MAIL', '')
 if len(SA_MAIL) == 0:
-    SA_MAIL = '#SA' 
-
+    SA_MAIL = '#SA'    
 
 TGH_THUMB = environ.get('TGH_THUMB', '')
 if len(TGH_THUMB) == 0:
@@ -202,8 +201,7 @@ if len(LINK_LOGS) != 0:
 
 SAVE_MSG = environ.get('SAVE_MSG', '')
 SAVE_MSG = SAVE_MSG.lower() == 'true'
-    
-    
+
 EXTENSION_FILTER = environ.get('EXTENSION_FILTER', '')
 if len(EXTENSION_FILTER) > 0:
     fx = EXTENSION_FILTER.split()
@@ -288,7 +286,7 @@ try:
                 app.stop()
                 exit(1)
             TG_SPLIT_SIZE = 4194304000
-            LOGGER.info("Telegram Premium detected! Leech Limit upgraded to 4GB")
+            LOGGER.info("Telegram Premium Detected! Leech Limit upgraded to 4GB")
         elif (not DATABASE_URL) or (not RSS_CHAT_ID):
             premium_session.stop()
             LOGGER.info(f"Not using rss. if you want to use fill RSS_CHAT_ID and DATABASE_URL variables.")
@@ -418,6 +416,9 @@ SET_BOT_COMMANDS = SET_BOT_COMMANDS.lower() == 'true'
 IS_TEAM_DRIVE = environ.get('IS_TEAM_DRIVE', '')
 IS_TEAM_DRIVE = IS_TEAM_DRIVE.lower() == 'true'
 
+ENABLE_USR_TD = environ.get('ENABLE_USR_TD', '')
+ENABLE_USR_TD = ENABLE_USR_TD.lower() == 'true'
+
 USE_SERVICE_ACCOUNTS = environ.get('USE_SERVICE_ACCOUNTS', '')
 USE_SERVICE_ACCOUNTS = USE_SERVICE_ACCOUNTS.lower() == 'true'
 
@@ -435,6 +436,9 @@ EQUAL_SPLITS = EQUAL_SPLITS.lower() == 'true'
 
 MIRROR_ENABLED = environ.get('MIRROR_ENABLED', '')
 MIRROR_ENABLED = MIRROR_ENABLED.lower() == 'true'
+
+QB_MIRROR_ENABLED = environ.get('QB_MIRROR_ENABLED', '')
+QB_MIRROR_ENABLED = QB_MIRROR_ENABLED.lower() == 'true'
 
 LEECH_ENABLED = environ.get('LEECH_ENABLED', '')
 LEECH_ENABLED = LEECH_ENABLED.lower() == 'true'
@@ -489,12 +493,6 @@ if len(FSUB_IDS) == 0:
 PAID_SERVICE = environ.get('PAID_SERVICE', '')
 PAID_SERVICE = PAID_SERVICE.lower() == 'true'
 
-ENABLE_USR_TD = environ.get('ENABLE_USR_TD', '')
-ENABLE_USR_TD = ENABLE_USR_TD.lower() == 'true'
-
-QB_MIRROR_ENABLED = environ.get('QB_MIRROR_ENABLED', '')
-QB_MIRROR_ENABLED = QB_MIRROR_ENABLED.lower() == 'true'
-
 SHOW_LIMITS_IN_STATS = environ.get('SHOW_LIMITS_IN_STATS', '')
 SHOW_LIMITS_IN_STATS = SHOW_LIMITS_IN_STATS.lower() == 'true'
 
@@ -548,11 +546,11 @@ if len(HUBDRIVE_CRYPT) == 0:
 KATDRIVE_CRYPT = environ.get('KATDRIVE_CRYPT', '')
 if len(KATDRIVE_CRYPT) == 0:
     KATDRIVE_CRYPT = ''
-
+    
 KOLOP_CRYPT = environ.get('KOLOP_CRYPT', '')
 if len(KOLOP_CRYPT) == 0:
-    KOLOP_CRYPT = ''    
-    
+    KOLOP_CRYPT = ''
+
 DRIVEFIRE_CRYPT = environ.get('DRIVEFIRE_CRYPT', '')
 if len(DRIVEFIRE_CRYPT) == 0:
     DRIVEFIRE_CRYPT = ''
@@ -585,23 +583,23 @@ else:
 
 AUTHOR_NAME = environ.get('AUTHOR_NAME', '')
 if len(AUTHOR_NAME) == 0:
-    AUTHOR_NAME = 'B3Ni'
+    AUTHOR_NAME = 'WZML'
 
 AUTHOR_URL = environ.get('AUTHOR_URL', '')
 if len(AUTHOR_URL) == 0:
-    AUTHOR_URL = 'https://t.me/Gc_Anon'
+    AUTHOR_URL = 'https://t.me/WeebZone_updates'
 
 TITLE_NAME = environ.get('TITLE_NAME', '')
 if len(TITLE_NAME) == 0:
-    TITLE_NAME = 'B3Ni'
+    TITLE_NAME = 'WeebZone'
 
 GD_INFO = environ.get('GD_INFO', '')
 if len(GD_INFO) == 0:
-    GD_INFO = 'Uploaded by B3Ni Mirror Bot'
+    GD_INFO = 'Uploaded by WeebZone Mirror Bot'
 
 CREDIT_NAME = environ.get('CREDIT_NAME', '')
 if len(CREDIT_NAME) == 0:
-    CREDIT_NAME = 'B3Ni'
+    CREDIT_NAME = 'WeebZone'
 
 NAME_FONT = environ.get('NAME_FONT', '')
 if len(NAME_FONT) == 0:
@@ -697,7 +695,6 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'BASE_URL': BASE_URL,
                'BOT_TOKEN': BOT_TOKEN,
                'BOT_PM': BOT_PM,
-               'CHANNEL_USERNAME': CHANNEL_USERNAME,
                'BUTTON_FOUR_NAME': BUTTON_FOUR_NAME,
                'BUTTON_FOUR_URL': BUTTON_FOUR_URL,
                'BUTTON_FIVE_NAME': BUTTON_FIVE_NAME,
@@ -706,7 +703,6 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'BUTTON_SIX_URL': BUTTON_SIX_URL,
                'CAPTION_FONT': CAPTION_FONT,
                'CREDIT_NAME': CREDIT_NAME,
-               'CHANNEL_USERNAME': CHANNEL_USERNAME,
                'CLONE_ENABLED': CLONE_ENABLED,
                'CLONE_LIMIT': CLONE_LIMIT,
                'CMD_SUFFIX': CMD_SUFFIX,
@@ -715,13 +711,13 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'DATABASE_URL': DATABASE_URL,
                'ENABLE_USR_TD': ENABLE_USR_TD,
                'IMDB_TEMPLATE': DEF_IMDB_TEMP,
-               'ANIME_TEMPLATE': DEF_ANI_TEMP, 
+               'ANIME_TEMPLATE': DEF_ANI_TEMP,  
                'DISABLE_DRIVE_LINK': DISABLE_DRIVE_LINK,
                'OWNER_ID': OWNER_ID,
                'EQUAL_SPLITS': EQUAL_SPLITS,
                'EXTENSION_FILTER': EXTENSION_FILTER,
                'EMOJI_THEME': EMOJI_THEME,
-               'GDRIVE_ID': GDRIVE_ID,
+               'GDRIVE_ID': GDRIVE_ID,               
                'IGNORE_PENDING_REQUESTS': IGNORE_PENDING_REQUESTS,
                'INCOMPLETE_TASK_NOTIFIER': INCOMPLETE_TASK_NOTIFIER,
                'INDEX_URL': INDEX_URL,
@@ -736,6 +732,10 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'RSS_DELAY': RSS_DELAY,
                'LEECH_ENABLED': LEECH_ENABLED,
                'MIRROR_ENABLED': MIRROR_ENABLED,
+               'QB_MIRROR_ENABLED': QB_MIRROR_ENABLED,
+               'QUEUE_ALL': QUEUE_ALL,
+               'QUEUE_DOWNLOAD': QUEUE_DOWNLOAD,
+               'QUEUE_UPLOAD': QUEUE_UPLOAD,
                'WATCH_ENABLED': WATCH_ENABLED,
                'WAYBACK_ENABLED': WAYBACK_ENABLED,
                'MEDIAINFO_ENABLED': MEDIAINFO_ENABLED,
@@ -747,10 +747,6 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'PAID_SERVICE': PAID_SERVICE,
                'MIRROR_LOGS': MIRROR_LOGS,
                'MIRROR_LOG_URL': MIRROR_LOG_URL,
-               'QB_MIRROR_ENABLED': QB_MIRROR_ENABLED,
-               'QUEUE_ALL': QUEUE_ALL,
-               'QUEUE_DOWNLOAD': QUEUE_DOWNLOAD,
-               'QUEUE_UPLOAD': QUEUE_UPLOAD,
                'LINK_LOGS': LINK_LOGS,
                'TIMEZONE': TIMEZONE,
                'TGH_THUMB': TGH_THUMB,
@@ -767,6 +763,8 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'STATUS_LIMIT': STATUS_LIMIT,
                'STATUS_UPDATE_INTERVAL': STATUS_UPDATE_INTERVAL,
                'STOP_DUPLICATE': STOP_DUPLICATE,
+               'SAVE_MSG': SAVE_MSG,
+               'SAME_ACC_COOKIES': SAME_ACC_COOKIES,
                'SUDO_USERS': SUDO_USERS,
                'TELEGRAM_API': TELEGRAM_API,
                'TELEGRAM_HASH': TELEGRAM_HASH,
@@ -774,22 +772,15 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'UPSTREAM_REPO': UPSTREAM_REPO,
                'UPSTREAM_BRANCH': UPSTREAM_BRANCH,
                'UPTOBOX_TOKEN': UPTOBOX_TOKEN,
-               'USE_SERVICE_ACCOUNTS': USE_SERVICE_ACCOUNTS,
-               'UNIFIED_EMAIL': UNIFIED_EMAIL,
-               'UNIFIED_PASS': UNIFIED_PASS,
+               'USE_SERVICE_ACCOUNTS': USE_SERVICE_ACCOUNTS,               
                'VIEW_LINK': VIEW_LINK,
-               'SAVE_MSG': SAVE_MSG,
-               'SAME_ACC_COOKIES': SAME_ACC_COOKIES,
                'GDTOT_CRYPT': GDTOT_CRYPT,
                'HUBDRIVE_CRYPT': HUBDRIVE_CRYPT,
                'KATDRIVE_CRYPT': KATDRIVE_CRYPT,
+               'KOLOP_CRYPT': KOLOP_CRYPT,
                'SHAREDRIVE_PHPCKS': SHAREDRIVE_PHPCKS,
                'XSRF_TOKEN': XSRF_TOKEN,
                'laravel_session': laravel_session,
-               'KOLOP_CRYPT': KOLOP_CRYPT,
-               'DAILY_TASK_LIMIT': DAILY_TASK_LIMIT,
-               'DAILY_MIRROR_LIMIT': DAILY_MIRROR_LIMIT,
-               'DAILY_LEECH_LIMIT': DAILY_LEECH_LIMIT,
                'TOTAL_TASKS_LIMIT': TOTAL_TASKS_LIMIT,
                'USER_TASKS_LIMIT': USER_TASKS_LIMIT,
                'STORAGE_THRESHOLD': STORAGE_THRESHOLD,
@@ -797,6 +788,9 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'ZIP_UNZIP_LIMIT': ZIP_UNZIP_LIMIT,
                'LEECH_LIMIT': LEECH_LIMIT,
                'MEGA_LIMIT': MEGA_LIMIT,
+               'DAILY_TASK_LIMIT': DAILY_TASK_LIMIT,
+               'DAILY_MIRROR_LIMIT': DAILY_MIRROR_LIMIT,
+               'DAILY_LEECH_LIMIT': DAILY_LEECH_LIMIT,
                'TIME_GAP': TIME_GAP,
                'FINISHED_PROGRESS_STR': FINISHED_PROGRESS_STR,
                'UN_FINISHED_PROGRESS_STR': UN_FINISHED_PROGRESS_STR,
@@ -810,8 +804,6 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'PIXABAY_CATEGORY': PIXABAY_CATEGORY,
                'PIXABAY_SEARCH': PIXABAY_SEARCH,
                'PICS': PICS,
-               'YTDLP_LIMIT': YTDLP_LIMIT,
-               'MAX_PLAYLIST': MAX_PLAYLIST,
                'NAME_FONT': NAME_FONT,
                'UPDATE_PACKAGES': UPDATE_PACKAGES,
                'SOURCE_LINK': SOURCE_LINK,
@@ -820,14 +812,27 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'START_BTN2_NAME': START_BTN2_NAME,
                'START_BTN2_URL': START_BTN2_URL,
                'WEB_PINCODE': WEB_PINCODE,
+               'YTDLP_LIMIT': YTDLP_LIMIT,
+               'MAX_PLAYLIST': MAX_PLAYLIST,
                'YT_DLP_QUALITY': YT_DLP_QUALITY}
-
 
 if GDRIVE_ID:
     DRIVES_NAMES.append("Main")
     DRIVES_IDS.append(GDRIVE_ID)
     INDEX_URLS.append(INDEX_URL)
-    
+
+if ospath.exists('list_drives.txt'):
+    with open('list_drives.txt', 'r+') as f:
+        lines = f.readlines()
+        for line in lines:
+            temp = line.strip().split()
+            DRIVES_IDS.append(temp[1])
+            DRIVES_NAMES.append(temp[0].replace("_", " "))
+            if len(temp) > 2:
+                INDEX_URLS.append(temp[2])
+            else:
+                INDEX_URLS.append('')
+
 if GDRIVE_ID:
     CATEGORY_NAMES.append("Root")
     CATEGORY_IDS.append(GDRIVE_ID)
@@ -844,19 +849,6 @@ if ospath.exists('categories.txt'):
                 CATEGORY_INDEX.append(temp[2])
             else:
                 CATEGORY_INDEX.append('')
-
-
-if ospath.exists('list_drives.txt'):
-    with open('list_drives.txt', 'r+') as f:
-        lines = f.readlines()
-        for line in lines:
-            temp = line.strip().split()
-            DRIVES_IDS.append(temp[1])
-            DRIVES_NAMES.append(temp[0].replace("_", " "))
-            if len(temp) > 2:
-                INDEX_URLS.append(temp[2])
-            else:
-                INDEX_URLS.append('')
 
 if BASE_URL:
     Popen(f"gunicorn web.wserver:app --bind 0.0.0.0:{SERVER_PORT}", shell=True)
